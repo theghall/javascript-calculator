@@ -1,6 +1,6 @@
 #calc-wrapper {
-    width: 95px;
-    height: 150px;
+    width: 130px;
+    height: 160px;
     border: 1px solid black;
     margin: 0 auto;
     padding: 0;
@@ -22,15 +22,35 @@
 }
 
 .row {
-    width: 95px;
-    height: 24px;
+    width: 110px;
+    height: 25px;
     margin: 0 auto;
     padding: 1px;
 }
 
+#clear {
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+#clear p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.empty {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin: 1px;
+    padding: 0;
+}
+
 .button {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 1px solid black;
     float: left;
     margin: 0;
