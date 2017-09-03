@@ -1,0 +1,44 @@
+#calc-wrapper {
+    width: 95px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 0 auto;
+    padding: 0;
+    
+}
+
+#display {
+    width: 90%;
+    height: 20px;
+    border: 1px solid black;
+    text-align: right;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#display p {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    width: 95px;
+    height: 24px;
+    margin: 0 auto;
+    padding: 1px;
+}
+
+.button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.button p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
