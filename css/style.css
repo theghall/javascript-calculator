@@ -1,9 +1,12 @@
+/* style.css ^+*/
+
 #calc-wrapper {
     width: 130px;
     height: 160px;
     border: 1px solid black;
     margin: 0 auto;
     padding: 0;
+    background-color: LightGray;
     
 }
 
@@ -14,6 +17,8 @@
     text-align: right;
     margin: 0 auto;
     padding: 0;
+    background-color: green;
+    color: white; 
 }
 
 #display p {
@@ -57,8 +62,17 @@
     padding: 0;
 }
 
+#multiply, #divide, #add, #minus, #total {
+    background-color: red;
+}
+
 .button p {
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+.press {
+    background-color: black;
+    color: white;
 }
