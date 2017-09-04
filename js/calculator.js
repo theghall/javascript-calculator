@@ -70,6 +70,10 @@ function allowDecimal(number) {
     return allow;
 }
 
+function ignoreZero(keypress, currNumber) {
+    return (keypress === '0' && currNumber === '0');
+}
+
 function calculator() {
     var cdisplay = $('#display');
     var currNumber = '';
@@ -89,7 +93,7 @@ function calculator() {
         
         keypress = $(this).text();
         
-        if (isNumber(keypress)) {
+        if (isNumber(keypress) && !ignoreZero(keypress, currNumber)) {
             currNumber += keypress;
             cdisplay.text(currNumber);
         } else {
