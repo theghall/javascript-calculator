@@ -50,6 +50,10 @@ function calcOperands(stack) {
 
 function total(stack) {
    var number = '0';
+   // Make total last number entered
+   if (stack.length === 2) {
+       stack.shift();
+   }
    
     while (stack.length > 1) {
         number = calcOperands(stack);
@@ -62,6 +66,11 @@ function total(stack) {
 
 function isNumber(keypress) {
     return !isNaN(keypress);
+}
+
+function isOperation(keypress) {
+    var matches = keypress.match(/[\+\-\*\/]/g);
+    return matches !== null;
 }
 
 function allowDecimal(number) {
@@ -78,6 +87,7 @@ function calculator() {
     var cdisplay = $('#display');
     var currNumber = '';
     var lastOperation = '';
+    var lastKeypress = '';
     var operationStack = [];
 
     $('.button').on('mousedown', function depress_key() {
@@ -96,6 +106,13 @@ function calculator() {
         if (isNumber(keypress) && !ignoreZero(keypress, currNumber)) {
             currNumber += keypress;
             cdisplay.text(currNumber);
+        } else if (isOperation(keypress) && isOperation(lastKeypress)) {
+            // replace current operation on stack
+            if (operationStack.length % 2 === 0) {
+                operationStack.shift();
+                operationStack.unshift(keypress);
+            }
+            lastOperation = keypress;
         } else {
             switch(keypress) {
                 case '.':
@@ -162,7 +179,9 @@ function calculator() {
                     lastOperation = keypress;
                     break;
                 case '=':
-                    operationStack.unshift(currNumber);
+                    if (currNumber.length > 0) {
+                        operationStack.unshift(currNumber);
+                    }
                     currNumber = total(operationStack);
                     cdisplay.text(currNumber);
                     
@@ -171,6 +190,7 @@ function calculator() {
                     operationStack = [];
             }
         }
+        lastKeypress = keypress;
     }); 
 }
 
